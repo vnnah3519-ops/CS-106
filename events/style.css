@@ -5,7 +5,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+:root {
+  --primary-black: #2c2a28;
+  --soft-grey: #f4f4f4;
+  --border-color: #e0e0e0;
+}
 body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -25,48 +29,6 @@ body {
   background-color: #d4c092;
 }
 
-header.logo {
-  position: sticky;
-  top: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2c2a28;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  gap: 20px;
-  z-index: 1000;
-  height: 7.2vh;
-  h1 {
-    color: #f6f1eb;
-    letter-spacing: 0.1cm;
-    font-weight: 500;
-    margin-left: 46px;
-    font-size: 2rem;
-    margin-bottom: -2px;
-  }
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  margin-right: 24px;
-  a {
-    text-decoration: none;
-    color: #f6f1eb;
-    font-weight: 500;
-    font-size: 14px;
-    padding: 5px;
-  }
-  .stat {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    color: #f6f1eb;
-  }
-}
 section {
   display: flex;
   align-items: center;

@@ -439,3 +439,20 @@ buttons.forEach((button) => {
 document.addEventListener("DOMContentLoaded", () => {
   renderProducts(myProducts);
 });
+
+// script.js
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("nav");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+
+  if (navLinks.classList.contains("active")) {
+    menuToggle.querySelector("i").classList.remove("fa-bars");
+    menuToggle.querySelector("i").classList.add("fa-x");
+  } else {
+    menuToggle.querySelector("i").classList.remove("fa-x");
+    menuToggle.querySelector("i").classList.add("fa-bars");
+  }
+});

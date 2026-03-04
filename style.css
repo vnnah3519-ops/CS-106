@@ -4,14 +4,26 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+:root {
+  --primary-black: #2c2a28;
+  --soft-grey: #f6f1eb;
+  --border-color: #e0e0e0;
+}
 body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   background-color: #f6f1eb;
-  color: #2c2a28;
+  color: var(--primary-black);
   letter-spacing: 1px;
+  width: 100dvw;
   overflow-x: hidden;
+  will-change: auto;
+}
+
+header-main {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
 }
 
 h1,
@@ -25,49 +37,9 @@ h2 {
 }
 
 section {
-  height: 100vh;
-  width: 100vw;
-}
-
-header.logo {
-  position: sticky;
-  top: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2c2a28;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  gap: 20px;
-  padding: 10px;
-  z-index: 1000;
-  h1 {
-    color: #f6f1eb;
-    letter-spacing: 0.1cm;
-    font-weight: 500;
-    margin-left: 46px;
-  }
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  margin-right: 24px;
-  a {
-    text-decoration: none;
-    color: #f6f1eb;
-    font-weight: 500;
-    font-size: 14px;
-    padding: 5px;
-  }
-  .stat {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    color: #f6f1eb;
-  }
+  min-height: 100dvh;
+  width: 100dvw;
+  overflow-x: hidden;
 }
 
 .hompage-marquee {
@@ -107,7 +79,7 @@ nav {
 .buttons {
   background-color: #d4c092;
   color: #2c2a28;
-  font-size: 30px;
+  font-size: 3rem;
   padding: 24px;
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
@@ -127,19 +99,26 @@ nav {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
   gap: 5rem;
   h1 {
     font-size: 50px;
+    margin-top: 3rem;
   }
 
   #product-grid {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 2rem;
     padding: 2rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    width: 100dvw;
   }
 
   .product-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
     width: 25rem;
     height: 40rem;
     transition:
@@ -199,6 +178,8 @@ nav {
   justify-content: center;
   gap: 3rem;
   padding: 5rem;
+  background-color: var(--primary-black);
+  color: var(--soft-grey);
 
   .text-about {
     display: flex;
@@ -206,6 +187,8 @@ nav {
     gap: 2rem;
     h1 {
       font-size: 7rem;
+      color: var(--soft-grey);
+      margin-bottom: -2rem;
     }
     .line {
       height: 3px;
@@ -216,21 +199,24 @@ nav {
 
     h2 {
       font-size: 3rem;
+      color: var(--soft-grey);
     }
     p {
       font-size: 1.5rem;
+      line-height: 1.2;
     }
     button {
       background-color: #d4c092;
       color: #2c2a28;
-      font-size: 30px;
-      padding: 24px;
+      font-size: 3rem;
+      padding: 2rem;
       text-decoration: none;
       font-family: "Montserrat", sans-serif;
       font-weight: 600;
       border: none;
       cursor: pointer;
-      width: 20rem;
+      width: 25rem;
+      text-wrap: nowrap;
     }
     button:hover {
       background-color: #b4a37e;
@@ -242,9 +228,81 @@ nav {
 
   img {
     width: 50rem;
-    height: 40rem;
+    height: 50rem;
     object-fit: cover;
     border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  #hero {
+    max-height: 50vh;
+    margin-top: -2rem;
+    touch-action: pan-y;
+  }
+  .hero {
+    align-items: center;
+    margin: 0;
+    margin-top: 12rem;
+    text-align: center;
+    h1 {
+      display: none;
+    }
+    p {
+      display: none;
+    }
+    button {
+      font-size: 1rem;
+    }
+  }
+  .featured {
+    text-align: center;
+    gap: 2rem;
+    h1 {
+      font-size: 1.5rem;
+      text-wrap: nowrap;
+    }
+
+    .product-card {
+      width: 20rem;
+      height: 25rem;
+    }
+  }
+
+  .about-us {
+    img {
+      display: none;
+    }
+    .text-about {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      h1 {
+        font-size: 4rem;
+        margin-bottom: -2rem;
+        text-wrap: nowrap;
+        color: var(--soft-grey);
+      }
+      hr.line {
+        width: 20rem;
+      }
+      h2 {
+        font-size: 2rem;
+        width: 20rem;
+      }
+      p {
+        font-size: 1rem;
+        width: 20rem;
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        padding: 1rem;
+        font-size: 1rem;
+        width: 10rem;
+      }
+    }
   }
 }
 .trustees {
@@ -252,23 +310,27 @@ nav {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 2rem;
-  min-height: 100dvh;
+  gap: 0.5rem;
 
   h1 {
-    font-size: 50px;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 7rem;
   }
 
   #trustee-grid {
     display: flex;
     gap: 2rem;
     padding: 2rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
   }
 
   .trustee-card {
     width: 20rem;
-    height: 25rem;
+    height: 27rem;
     border-radius: 5px;
     transition:
       transform 0.1s ease,
@@ -291,9 +353,7 @@ nav {
   .trustee-card img {
     width: 100%;
     height: auto;
-    display: block;
-    overflow: hidden;
-    /* border-radius: 50%; */
+    aspect-ratio: 1 / 1;
     object-fit: cover;
   }
 
@@ -316,60 +376,11 @@ nav {
     color: #333;
   }
 
-  button a {
-    text-decoration: none;
-    color: #2c2a28;
-  }
-}
-
-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  background-color: #2c2a28;
-  color: #f6f1eb;
-  gap: 2rem;
-  padding: 2rem;
-  h1,
-  h2 {
-    color: #f6f1eb;
-    font-size: 3rem;
-    margin-bottom: 40px;
-    letter-spacing: 3px;
-  }
-
-  .follow-btns {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .socials i {
-    width: 25px;
-    height: 25px;
-    background: #f6f1eb;
-    color: #2c2a28;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  .socials i:hover {
-    background: #b4a37e;
-  }
-
-  span {
-    cursor: pointer;
-    margin: 20px;
-  }
-
-  .copy {
-    margin: 0px;
+  button {
+    a {
+      text-decoration: none;
+      color: #2c2a28;
+    }
+    margin-bottom: 5rem;
   }
 }

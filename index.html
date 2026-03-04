@@ -9,38 +9,17 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <title>Overlook -Modern, Elegance, Redefined</title>
+    <script type="module" src="header.js"></script>
   </head>
   <body>
     <div class="hompage-marquee">
-      <p>
+      <marquee scrollamount="10">
         Upcoming Event: Woven Threads - June 15 - 10pm | Contact Us For
         Appointment!
-      </p>
+      </marquee>
     </div>
-    <header id="header" class="logo header">
-      <h1>OVERLOOK</h1>
-      <nav id="nav">
-        <a href="/">Home</a>
-        <a href="product/index.html">Products</a>
-        <a href="/events/index.html">Events</a>
-        <a href="/trustees/index.html">Trustess</a>
-        <a href="/inquiry/index.html">Inquiry</a>
-        <div class="stat">
-          <div
-            class="stat-item"
-            onclick="openWishlist()"
-            style="cursor: pointer"
-          >
-            <span id="wishlist-count">❤️</span>
-          </div>
-          <div class="stat-item" onclick="openCart()" style="cursor: pointer">
-            <span id="cart-count">🛒</span>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <section class="home">
+    <header-main></header-main>
+    <section class="home" id="hero">
       <div class="hero">
         <h1>OVERLOOK</h1>
         <p>Modern Elegance Redefined.</p>
@@ -60,8 +39,17 @@
         <hr class="line" />
         <h2>Crafting Style, Creating Legacy</h2>
         <p>
-          A forward-thinking fashion house blending contemporary design with
-          timeless elegance to redefine modern style.
+          The Overlook is a visionary fashion house that transcends the fleeting
+          nature of modern trends by seamlessly blending contemporary, laser-cut
+          precision with the soulful, hand-stitched artistry of 17th-century
+          masters. Operating from a sanctuary like atelier where gravity and
+          light dictate the silhouette, the brand utilizes advanced engineering
+          such as carbon-fiber silk weaving to create "armor of identity" for a
+          modern vanguard who demand both architectural innovation and timeless
+          elegance. By treating modernity as a radical refinement of the past
+          rather than its absence, The Overlook redefines style as a permanent
+          poise against the mundane, ensuring every garment remains as
+          revolutionary in the future as it is today.
         </p>
         <button>LEARN MORE</button>
       </div>
@@ -75,7 +63,7 @@
       </button>
     </section>
 
-    <footer>
+    <!-- <footer>
       <h2>OVERLOOK</h2>
       <div class="follow-btns">
         <div class="socials">
@@ -95,7 +83,8 @@
       <div class="copy">
         <p>&#169;2026 THE OVERLOOK FASHION HOUSE</p>
       </div>
-    </footer>
-    <script defer src="script.js"></script>
+    </footer> -->
+    <footer-main></footer-main>
+    <script src="script.js"></script>
   </body>
 </html>

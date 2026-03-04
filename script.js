@@ -76,6 +76,77 @@ trustee.forEach((truste) => {
 
   trusteePreview.appendChild(card);
 });
-const year = document.getElementById("year");
 
-year.textContent = new Date().getFullYear();
+const hero = document.getElementById("hero");
+const images = ["src/1.jpg", "src/2.jpg", "src/3.jpg", "src/4.jpg"];
+let currentIndex = 0;
+let autoCycle = null;
+
+// 1. The Core Update Function
+function updateBg() {
+  const nextImageUrl = images[currentIndex];
+  const tempImage = new Image();
+  tempImage.src = nextImageUrl;
+  tempImage.onload = () => {
+    hero.style.backgroundImage = `url(${nextImageUrl})`;
+  };
+}
+
+// 2. Logic to Start/Stop the slider based on screen size
+function handleResponsiveness() {
+  const isMobile = window.innerWidth <= 850;
+
+  if (isMobile && !autoCycle) {
+    // Start Mobile Slider
+    autoCycle = setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateBg();
+    }, 5000);
+  } else if (!isMobile && autoCycle) {
+    // Stop Slider for Desktop & Reset to CSS default
+    clearInterval(autoCycle);
+    autoCycle = null;
+    hero.style.backgroundImage = ""; // Removes inline style so CSS takes over
+  }
+}
+
+// Initialize on load and on resize
+window.addEventListener("resize", handleResponsiveness);
+handleResponsiveness();
+
+// 3. Swipe Logic (Only active if on mobile)
+let touchStartX = 0;
+hero.addEventListener(
+  "touchstart",
+  (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  },
+  { passive: true },
+);
+
+hero.addEventListener(
+  "touchend",
+  (e) => {
+    if (window.innerWidth > 850) return; // Ignore swipes on desktop
+
+    const touchEndX = e.changedTouches[0].screenX;
+    const swipeThreshold = 50;
+
+    if (touchStartX - touchEndX > swipeThreshold) {
+      currentIndex = (currentIndex + 1) % images.length;
+    } else if (touchEndX - touchStartX > swipeThreshold) {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+    } else {
+      return;
+    }
+
+    updateBg();
+    // Reset timer on manual swipe
+    clearInterval(autoCycle);
+    autoCycle = setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateBg();
+    }, 5000);
+  },
+  { passive: true },
+);
