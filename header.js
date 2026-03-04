@@ -3,131 +3,149 @@ class Header extends HTMLElement {
     this.innerHTML = `
       <style>
 :host {
-    display: block;
-    width: 100dvw;
-    z-index: 10000;
+  display: block;
+  width: 100dvw;
+  z-index: 10000;
 }
-        header.logo {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          background-color: #2c2a28;
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-          height: 7vh;
-          width: 100dvw;
-        }
+header.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c2a28;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  height: 7vh;
+  width: 100dvw;
+}
 
-        header.logo h1 {
-          color: #f6f1eb;
-          letter-spacing: 0.1cm;
-          font-weight: 500;
-          margin-left: 3rem;
-          font-size: 1.5rem;
-        }
+header.logo #logo {
+  text-decoration: none;
+  font-family: "Playfair Display", serif;
+  color: #f6f1eb;
+  letter-spacing: 0.1cm;
+  font-weight: 500;
+  margin-left: 3rem;
+  font-size: 1.5rem;
+}
 
-        /* DEFAULT NAV (Desktop) */
-        nav {
-          display: flex;
-          align-items: center;
-          gap: 24px;
-          margin-right: 24px;
-        }
+/* DEFAULT NAV (Desktop) */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-right: 2rem;
+}
 
-        nav a {
-          text-decoration: none;
-          color: #f6f1eb;
-          font-weight: 500;
-          font-size: 14px;
-        }
+nav a {
+  text-decoration: none;
+  color: #f6f1eb;
+  font-weight: 500;
+  font-size: 1rem;
+  span {
+    display: none;
+  }
+    i.bi{
+    font-size: 1rem;
+    color: #f6f1eb;
+    
+    }
+}
 
-        #menuToggle {
-          display: none; 
-          background: none;
-          border: none;
-          margin-right: 2rem;
-          color: #d4c092;
-          font-size: 1.5rem;
-          cursor: pointer;
-          z-index: 10001;
-        }
-          #menuClose{
-          display: none;
-          }
+#menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  margin-right: 2rem;
+  color: #d4c092;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10001;
+}
+#menuClose {
+  display: none;
+}
 
-        .nav-overlay {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          background: rgba(0, 0, 0, 0.6);
-          z-index: 9998;
-        }
+.nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+}
 
-        .nav-overlay.active { display: block; }
+.nav-overlay.active {
+  display: block;
+}
 
-        @media screen and (max-width: 850px) {
-        header.logo h1 {
-          margin-left: 2rem;
-          font-size: 1rem;
-        }
-        button#menuToggle { 
-        display: block !important; 
-          }    
-        button#menuToggle.hidden {display: hidden }
+@media screen and (max-width: 850px) {
+  header.logo #logo {
+    margin-left: 2rem;
+    font-size: 1rem;
+  }
+  button#menuToggle {
+    display: block !important;
+  }
+  button#menuToggle.hidden {
+    display: hidden;
+  }
 
-          nav {
-            display: none;
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 75%;
-            height: 100vh;
-            background-color: #2c2a28;
-            flex-direction: column;
-            align-items: center;
-            padding: 80px 20px;
-            transition: 0.3s ease-in-out;
-            margin-right: 0;
-            z-index: 99999;
+  nav {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 75%;
+    height: 100vh;
+    background-color: #2c2a28;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+    transition: 0.3s ease-in-out;
+    margin-right: 0;
+    z-index: 99999;
 
-            #menuClose{
-          background: none;
-          border: none;
-          margin-right: 2rem;
+    #menuClose {
+      background: none;
+      border: none;
+      margin-right: 2rem;
 
-          color: #d4c092;
-          font-size: 1.5rem;
-          cursor: pointer;
-            }
-            }
-            
-            nav#nav.active {
-            display: flex !important; 
+      color: #d4c092;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
 
-            }
-            nav button{
-            border: none;
-            text-align: center;
-            padding: 0rem 4rem;
-            border-bottom: 1px solid #3d3b38;
+  nav#nav.active {
+    display: flex !important;
+    button {
+      border: none;
+      text-align: center;
+      padding: 0rem 4rem;
+      border-bottom: 1px solid #3d3b38;
+    }
+    a {
+      color: #d4c092;
+      background: transperent;
+      padding: 1rem 0;
+      width: 100%;
+      border-bottom: 1px solid #3d3b38;
+      svg {
+        display: none;
+      }
+      span {
+        display: block;
+      }
+    }
+  }
+}
 
-            }
-
-          nav a{
-            color: #d4c092;
-            backgroung-color: transperent;
-            padding: 1rem 0;
-            width: 100%;
-            border-bottom: 1px solid #3d3b38;
-          }
-        }
       </style>
 
      
       <header class="logo">
-        <h1>OVERLOOK</h1>
+        <a href="/" id="logo">OVERLOOK</a>
         <nav id="nav">
          <button class="menu-toggle-close" id="menuClose">
         <i class="fa-solid fa-xmark"></i>
@@ -137,6 +155,11 @@ class Header extends HTMLElement {
           <a href="/events/index.html">Events</a>
           <a href="/trustees/index.html">Trustees</a>
           <a href="/inquiry/index.html">Inquiry</a>
+          <a href="/cart/index.html">
+           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+           <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+           </svg>
+         <span>Cart</span></a>
         </nav>
       <div class="nav-overlay" id="overlay"></div>
 

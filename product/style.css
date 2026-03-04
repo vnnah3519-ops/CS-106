@@ -229,14 +229,15 @@ header.ctr h1 {
 
 /* Size Chips Styling */
 .size-container {
-  margin: 10px 0;
-  text-align: left;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
 .size-options {
-  display: flex;
   gap: 5px;
-  margin-top: 5px;
+  margin: 1rem;
 }
 
 .size-chip {
