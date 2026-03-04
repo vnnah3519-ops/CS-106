@@ -37,7 +37,6 @@ h2 {
 }
 
 section {
-  min-height: 100dvh;
   width: 100dvw;
   overflow-x: hidden;
 }
@@ -236,9 +235,10 @@ section {
 
 @media screen and (max-width: 850px) {
   #hero {
-    max-height: 50vh;
+    max-height: 75vh !important;
     margin-top: -2rem;
     touch-action: pan-y;
+    overflow: hidden;
   }
   .hero {
     align-items: center;
