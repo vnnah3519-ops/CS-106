@@ -58,7 +58,7 @@ h1 {
   font-family: "Playfair Display", serif;
   font-size: 2.5rem;
   font-weight: normal;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 }
 
 .featured-card {
@@ -182,7 +182,12 @@ h1 {
 }
 
 /* 4. RESPONSIVENESS (Mobile View) */
-@media (max-width: 600px) {
+@media screen and (max-width: 850px) {
+  section {
+    img {
+      display: none;
+    }
+  }
   .featured-card {
     flex-direction: column; /* Stacks image and text */
   }
